@@ -1,5 +1,6 @@
 
 public class Panificio {
+	
 	private String provincia;
 	private String citta;
 	private String regione;
@@ -27,5 +28,11 @@ public class Panificio {
 	}
 	public void setPanificio(String panificio) {
 		this.panificio = panificio;
+	}
+	
+	@Override
+	public String toString() {
+		return "Panificio [provincia=" + provincia + ", citta=" + citta + ", regione=" + regione + ", panificio="
+				+ panificio + "]";
 	}
 }
