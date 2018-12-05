@@ -9,8 +9,13 @@ public class dbtest {
       
       List<Panificio>l=daop.getPanifici();
       
-      for ( Panificio p : l ) {
-    	  System.out.println(p);
+//      for ( Panificio p : l ) {
+//    	  System.out.println(p);
+//      }
+//      
+      List<String> citta=daop.getCitta("MILANO");
+      for ( String x: citta) {
+    	  System.out.println(x);
       }
 	}	
 }

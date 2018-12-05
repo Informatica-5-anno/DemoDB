@@ -1,6 +1,7 @@
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -62,7 +63,24 @@ public class DAOPanifici {
 	}
 //	
 //	public List<String> getProvince();
-//	public List<String> getCitta(String provincia);
+	public List<String> getCitta(String provincia) {
+		List<String> lp=new ArrayList<String>();
+		connectDB();
+		try {
+			PreparedStatement s=c.prepareStatement("SELECT DISTINCT Citta FROM panifici WHERE Provincia=? ORDER BY 1 ASC");
+			s.setString(1, provincia);
+			ResultSet rs=s.executeQuery();
+			while (rs.next()) {
+				lp.add(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		closeDB();
+		return lp;
+	}
 //	public Panificio getPanificio(Panificio p);
 //	public List<Panificio> getPanifici(String provincia, String citta);
 
